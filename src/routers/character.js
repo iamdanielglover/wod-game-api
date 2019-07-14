@@ -3,6 +3,7 @@ const Character = require('../models/character')
 const User = require('../models/user')
 const Attributelist = require('../models/attributes')
 const SkillsMentalList = require('../models/mentalskills')
+const SkillsPhysicalList = require('../models/physicalskills')
 const auth = require('../middleware/auth')
 const router = new express.Router()
 
@@ -65,6 +66,29 @@ router.post('/characters/:id/mentals', auth, async (req, res) => {
     }
 })
 
+// Sets mental skills for Character
+router.post('/characters/:id/physicals', auth, async (req, res) => {
+
+    try {
+        const character = await Character.findOne({ _id: req.params.id, owner: req.user._id })
+        if (!character) {
+            return res.status(404).send()
+        }
+
+        await SkillsPhysicalList.deleteMany({ owner: character._id })
+
+        const mentals = new SkillsPhysicalList({
+            ...req.body,
+            owner: req.params.id
+        })
+
+        await physicals.save()
+        res.status(201).send(physicals)
+    } catch (e) {
+        res.status(400).send(e)
+    }
+})
+
 
 // Shows single Character
 router.get('/characters/:id', auth, async (req, res) => {
@@ -72,6 +96,7 @@ router.get('/characters/:id', auth, async (req, res) => {
         const character = await Character.findOne({_id: req.params.id, owner: req.user._id})
         const attributes = await Attributelist.findOne({owner: character._id})
         const mentals = await SkillsMentalList.findOne({owner: character._id})
+        const physicals = await SkillsPhysicalList.findOne({owner: character._id})
         if (!character) {
             return res.status(404).send()
         }
@@ -79,7 +104,8 @@ router.get('/characters/:id', auth, async (req, res) => {
         const display = {
             character,
             attributes,
-            mentals
+            mentals, 
+            physicals
         }
         res.status(200).send(display)
     } catch (e) {

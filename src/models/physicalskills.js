@@ -78,7 +78,7 @@ const skillsPhysicalListSchema = new mongoose.Schema({
         required: true,
         ref: 'Character'
     }
-})
+});
 
 const skillsPhysicalList = mongoose.model('skillsPhysicalList', skillsPhysicalListSchema)
 
