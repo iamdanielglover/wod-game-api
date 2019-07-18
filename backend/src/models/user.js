@@ -2,7 +2,6 @@ const mongoose = require('mongoose')
 const validator = require('validator')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
-const Character = require('./character')
 
 const userSchema = new mongoose.Schema({
     name: {
@@ -38,7 +37,8 @@ const userSchema = new mongoose.Schema({
             type: String,
             required: true
         }
-    }]
+    }],
+    characters: [CharacterSchema]
 })
 
 
