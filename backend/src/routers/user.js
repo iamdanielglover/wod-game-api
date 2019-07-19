@@ -1,5 +1,5 @@
 const express = require('express')
-const User = require('../models/user')
+const { User } = require('../models/user')
 const auth = require('../middleware/auth')
 const router = new express.Router()
 
@@ -56,7 +56,7 @@ router.get('/users/me', auth, async (req, res) => {
 })
 
 
-
+// GET all users
 router.get('/users', async (req, res) => {
     try {
         const users = await User.find({})
@@ -65,5 +65,7 @@ router.get('/users', async (req, res) => {
         res.status(500).send()
     }
 })
+
+
 
 module.exports = router

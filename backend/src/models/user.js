@@ -3,7 +3,374 @@ const validator = require('validator')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 
-const userSchema = new mongoose.Schema({
+const CharacterSchema = new mongoose.Schema({
+    owner: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    },
+    name: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    age: {
+        type: Number,
+        required: true,
+        validate(value) {
+            if (value < 0) {
+                throw new Error('Must be older than 0')
+            }
+        }
+    },
+    concept: { type: String },
+    virtue: { type: String },
+    vice: { type: String },
+    faction: { type: String },
+    size: { type: Number },
+    attributes: {
+        intelligence: {
+            required: true,
+            default: 1,
+            type: Number,
+            validate(value) {
+                if (value < 1 || value > 5) {
+                    throw new Error('Attribute must be between 1-5')
+                }
+            }
+        },
+        wits: {
+            required: true,
+            default: 1,
+            type: Number,
+            validate(value) {
+                if (value < 1 || value > 5) {
+                    throw new Error('Attribute must be between 1-5')
+                }
+            }
+        },
+        resolve: {
+            required: true,
+            default: 1,
+            type: Number,
+            validate(value) {
+                if (value < 1 || value > 5) {
+                    throw new Error('Attribute must be between 1-5')
+                }
+            }
+        },
+        strength: {
+            required: true,
+            default: 1,
+            type: Number,
+            validate(value) {
+                if (value < 1 || value > 5) {
+                    throw new Error('Attribute must be between 1-5')
+                }
+            }
+        },
+        dexterity: {
+            required: true,
+            default: 1,
+            type: Number,
+            validate(value) {
+                if (value < 1 || value > 5) {
+                    throw new Error('Attribute must be between 1-5')
+                }
+            }
+        },
+        stamina: {
+            required: true,
+            default: 1,
+            type: Number,
+            validate(value) {
+                if (value < 1 || value > 5) {
+                    throw new Error('Attribute must be between 1-5')
+                }
+            }
+        },
+        presence: {
+            required: true,
+            default: 1,
+            type: Number,
+            validate(value) {
+                if (value < 1 || value > 5) {
+                    throw new Error('Attribute must be between 1-5')
+                }
+            }
+        },
+        manipulation: {
+            required: true,
+            default: 1,
+            type: Number,
+            validate(value) {
+                if (value < 1 || value > 5) {
+                    throw new Error('Attribute must be between 1-5')
+                }
+            }
+        },
+        composure: {
+            required: true,
+            default: 1,
+            type: Number,
+            validate(value) {
+                if (value < 1 || value > 5) {
+                    throw new Error('Attribute must be between 1-5')
+                }
+            }
+        }
+    },
+    physicals: {
+        athletics: {
+            required: true,
+            default: 1,
+            type: Number,
+            validate(value) {
+                if (value < 1 || value > 5) {
+                    throw new Error('Skill must be between 1-5')
+                }
+            }
+        },
+        brawl: {
+            required: true,
+            default: 1,
+            type: Number,
+            validate(value) {
+                if (value < 1 || value > 5) {
+                    throw new Error('Skill must be between 1-5')
+                }
+            }
+        },
+        drive: {
+            required: true,
+            default: 1,
+            type: Number,
+            validate(value) {
+                if (value < 1 || value > 5) {
+                    throw new Error('Skill must be between 1-5')
+                }
+            }
+        },
+        firearms: {
+            required: true,
+            default: 1,
+            type: Number,
+            validate(value) {
+                if (value < 1 || value > 5) {
+                    throw new Error('Skill must be between 1-5')
+                }
+            }
+        },
+        larceny: {
+            required: true,
+            default: 1,
+            type: Number,
+            validate(value) {
+                if (value < 1 || value > 5) {
+                    throw new Error('Skill must be between 1-5')
+                }
+            }
+        },
+        stealth: {
+            required: true,
+            default: 1,
+            type: Number,
+            validate(value) {
+                if (value < 1 || value > 5) {
+                    throw new Error('Skill must be between 1-5')
+                }
+            }
+        },
+        survival: {
+            required: true,
+            default: 1,
+            type: Number,
+            validate(value) {
+                if (value < 1 || value > 5) {
+                    throw new Error('Skill must be between 1-5')
+                }
+            }
+        },
+        weaponry: {
+            required: true,
+            default: 1,
+            type: Number,
+            validate(value) {
+                if (value < 1 || value > 5) {
+                    throw new Error('Skill must be between 1-5')
+                }
+            }
+        }
+    },
+    mentals: {
+        academics: {
+            required: true,
+            default: 1,
+            type: Number,
+            validate(value) {
+                if (value < 1 || value > 5) {
+                    throw new Error('Skill must be between 1-5')
+                }
+            }
+        },
+        computer: {
+            required: true,
+            default: 1,
+            type: Number,
+            validate(value) {
+                if (value < 1 || value > 5) {
+                    throw new Error('Skill must be between 1-5')
+                }
+            }
+        },
+        crafts: {
+            required: true,
+            default: 1,
+            type: Number,
+            validate(value) {
+                if (value < 1 || value > 5) {
+                    throw new Error('Skill must be between 1-5')
+                }
+            }
+        },
+        investigation: {
+            required: true,
+            default: 1,
+            type: Number,
+            validate(value) {
+                if (value < 1 || value > 5) {
+                    throw new Error('Skill must be between 1-5')
+                }
+            }
+        },
+        medicine: {
+            required: true,
+            default: 1,
+            type: Number,
+            validate(value) {
+                if (value < 1 || value > 5) {
+                    throw new Error('Skill must be between 1-5')
+                }
+            }
+        },
+        occult: {
+            required: true,
+            default: 1,
+            type: Number,
+            validate(value) {
+                if (value < 1 || value > 5) {
+                    throw new Error('Skill must be between 1-5')
+                }
+            }
+        },
+        politics: {
+            required: true,
+            default: 1,
+            type: Number,
+            validate(value) {
+                if (value < 1 || value > 5) {
+                    throw new Error('Skill must be between 1-5')
+                }
+            }
+        },
+        science: {
+            required: true,
+            default: 1,
+            type: Number,
+            validate(value) {
+                if (value < 1 || value > 5) {
+                    throw new Error('Skill must be between 1-5')
+                }
+            }
+        }
+    },
+    socials: {
+        animalken: {
+            required: true,
+            default: 1,
+            type: Number,
+            validate(value) {
+                if (value < 1 || value > 5) {
+                    throw new Error('Skill must be between 1-5')
+                }
+            }
+        },
+        empathy: {
+            required: true,
+            default: 1,
+            type: Number,
+            validate(value) {
+                if (value < 1 || value > 5) {
+                    throw new Error('Skill must be between 1-5')
+                }
+            }
+        },
+        expression: {
+            required: true,
+            default: 1,
+            type: Number,
+            validate(value) {
+                if (value < 1 || value > 5) {
+                    throw new Error('Skill must be between 1-5')
+                }
+            }
+        },
+        intimidation: {
+            required: true,
+            default: 1,
+            type: Number,
+            validate(value) {
+                if (value < 1 || value > 5) {
+                    throw new Error('Skill must be between 1-5')
+                }
+            }
+        },
+        persuasion: {
+            required: true,
+            default: 1,
+            type: Number,
+            validate(value) {
+                if (value < 1 || value > 5) {
+                    throw new Error('Skill must be between 1-5')
+                }
+            }
+        },
+        socialize: {
+            required: true,
+            default: 1,
+            type: Number,
+            validate(value) {
+                if (value < 1 || value > 5) {
+                    throw new Error('Skill must be between 1-5')
+                }
+            }
+        },
+        streetwise: {
+            required: true,
+            default: 1,
+            type: Number,
+            validate(value) {
+                if (value < 1 || value > 5) {
+                    throw new Error('Skill must be between 1-5')
+                }
+            }
+        },
+        subterfuge: {
+            required: true,
+            default: 1,
+            type: Number,
+            validate(value) {
+                if (value < 1 || value > 5) {
+                    throw new Error('Skill must be between 1-5')
+                }
+            }
+        }
+    }
+})
+
+
+
+
+const UserSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
@@ -38,19 +405,26 @@ const userSchema = new mongoose.Schema({
             required: true
         }
     }],
-    characters: [CharacterSchema]
+    characters: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Character'
+    }]
 })
 
-
-
-userSchema.virtual('characters', {
+UserSchema.virtual('chars', {
     ref: 'Character',
     localField: '_id',
     foreignField: 'owner'
 })
 
+// CharacterSchema.virtual('atts', {
+//     ref: 'Attribute',
+//     localField: '_id',
+//     foreignField: 'owner'
+// })
+
 // Generate Auth Token Method
-userSchema.methods.generateAuthToken = async function () {
+UserSchema.methods.generateAuthToken = async function () {
     const user = this
     const token = jwt.sign({ _id: user._id.toString() }, process.env.JWT_SECRET)
 
@@ -60,7 +434,7 @@ userSchema.methods.generateAuthToken = async function () {
     return token
 }
 // Login, find user & then use BCrypt to check password.
-userSchema.statics.findByCredentials = async (email, password) => {
+UserSchema.statics.findByCredentials = async (email, password) => {
     const user = await User.findOne({ email })
 
     if (!user) {
@@ -77,7 +451,7 @@ userSchema.statics.findByCredentials = async (email, password) => {
 }
 
 // Hash the plain text password before saving
-userSchema.pre('save', async function (next) {
+UserSchema.pre('save', async function (next) {
     const user = this
 
     if (user.isModified('password')) {
@@ -88,12 +462,17 @@ userSchema.pre('save', async function (next) {
 })
 
 // Delete user characters when user is removed
-userSchema.pre('remove', async function (next) {
+UserSchema.pre('remove', async function (next) {
     const user = this
     await Character.deleteMany({ owner: user._id })
     next()
 })
 
-const User = mongoose.model('User', userSchema)
+const User = mongoose.model('User', UserSchema)
+const Character = mongoose.model('Character', CharacterSchema)
 
-module.exports = User
+
+module.exports = {
+    User,
+    Character
+}
