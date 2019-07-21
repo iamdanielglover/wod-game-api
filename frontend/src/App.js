@@ -69,7 +69,6 @@ class App extends Component {
   }
 
   render() {
-    debugger
     return (
       <React.Fragment>
         <Navbar sendSignup={this.sendSignup} sendLogin={this.sendLogin} sendHome={this.sendHome} logOut={this.logOut} user={this.state.user_id}/>

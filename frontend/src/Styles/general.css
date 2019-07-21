@@ -1,0 +1,25 @@
+#char-create-select {
+    height: 3rem;
+    width: stretch;    
+    margin: 0.5rem;
+}
+
+#char-create-formtype {
+    padding: 1rem;
+}
+
+#char-create-textarea {
+    padding: 1.59rem;
+}
+
+#char-create-card {
+    min-height: 500px;
+    width: auto;
+    margin-top: 4%;
+    padding-left: 5%;
+    padding-right: 5%
+}
+
+#char-create-card-content {
+    padding: 4%;
+}

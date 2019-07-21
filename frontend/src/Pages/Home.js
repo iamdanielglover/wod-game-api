@@ -21,11 +21,13 @@ class Home extends Component {
                         <Card.Content>
                             View Characters
                         </Card.Content>
+                        <Button>View</Button>
                     </Card>
                     <Card>
                         <Card.Content>
                             View Merits
                         </Card.Content>
+                        <Button>Button</Button>
                     </Card>
                 </div>
             </React.Fragment>
