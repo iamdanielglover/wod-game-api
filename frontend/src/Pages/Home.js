@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
+import { Card, Button } from 'semantic-ui-react'
 
 class Home extends Component {
-    
-    
     
     render() {
         return (
@@ -11,6 +10,23 @@ class Home extends Component {
                     <h1>
                         Home page!
                     </h1>
+                    <Card>
+                        <Card.Content>
+                            Create Character
+
+                        </Card.Content>
+                        <Button onClick={() => this.props.sendCharacterCreation()}>create</Button>
+                    </Card>
+                    <Card>
+                        <Card.Content>
+                            View Characters
+                        </Card.Content>
+                    </Card>
+                    <Card>
+                        <Card.Content>
+                            View Merits
+                        </Card.Content>
+                    </Card>
                 </div>
             </React.Fragment>
         )
