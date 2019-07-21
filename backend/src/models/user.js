@@ -18,16 +18,8 @@ const CharacterSchema = new mongoose.Schema({
             }
         }
     },
-    age: {
-        type: Number,
-        required: true,
-        validate(value) {
-            if (value < 15) {
-                throw new Error('Must be older than 15')
-            }
-        }
-    },
-    concept: { type: String, required: true },
+    age: { type: Number, required: true },
+    concept: { type: String },
     virtue: { type: String, required: true },
     vice: { type: String, required: true },
     faction: { type: String },

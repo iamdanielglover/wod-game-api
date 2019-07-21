@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Form, Grid, TextArea, Card, Table, Label, Button } from 'semantic-ui-react'
 import Options from '../Components/Options'
 import {vices, virtues} from '../Utils/viceandvirtues'
-import {characterPost} from '../Utils/CharacterPost'
+import characterPost from '../Utils/CharacterPost'
 import '../Styles/general.css'
 
 class CharacterCreation extends Component {
@@ -22,10 +22,11 @@ class CharacterCreation extends Component {
         })
     }
     
-    handleSubmit = (event) => {
+    handleSubmit = async (event) => {
         event.preventDefault()
-        characterPost(this.state, 'http://localhost:3000/characters')
-        console.log("word")
+        const word = await characterPost(this.state, 'http://localhost:3000/characters', localStorage.getItem("token"))
+        console.log(word._id)
+        this.props.history.push(`/character-attributes/${word._id}`)
     }
 
     render() {
@@ -103,7 +104,9 @@ class CharacterCreation extends Component {
                             </Table>
                         </Grid.Column>
                     </Grid>
-                    <Button onClick={this.handleSubmit}>Create Character</Button>
+                    <div id="centered-button">
+                        <Button onClick={this.handleSubmit}>Create Character</Button>
+                    </div>
                 </Card.Content>
             </Card>
         )

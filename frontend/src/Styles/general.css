@@ -13,7 +13,7 @@
 }
 
 #char-create-card {
-    min-height: 500px;
+    height: 35rem;
     width: auto;
     margin-top: 4%;
     padding-left: 5%;
@@ -22,4 +22,9 @@
 
 #char-create-card-content {
     padding: 4%;
+}
+
+#centered-button {
+    margin: 2rem;
+    text-align: center;
 }

@@ -7,6 +7,7 @@ import Home from './Pages/Home'
 import Login from './auth/Login'
 import Signup from './auth/Signup'
 import CharacterCreation from './Pages/CharacterCreation'
+import CharacterAttributes from './Pages/CharacterAttributes'
 
 class App extends Component {
   state = {
@@ -83,6 +84,10 @@ class App extends Component {
                     <Route
                       exact path="/character-creation"
                       render={(routerProps) => <CharacterCreation {...routerProps} />}
+                    />
+                    <Route
+                      path="/character-attributes/:id"
+                      render={(routerProps) => <CharacterAttributes {...routerProps} />}
                     />
                   </React.Fragment>
                     :

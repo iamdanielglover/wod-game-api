@@ -1,9 +1,10 @@
-const characterPost = async (character, url) => {
+const characterPost = async (character, url, token) => {
     try {
         const response = await fetch(url, {
             method: "POST",
             headers: { "Content-Type": "application/json",
-                "Authorization": localStorage.getItem("token") },
+                       "Authorization": token 
+                    },
             body: JSON.stringify(character)
         })
         const json = await response.json()
