@@ -8,6 +8,7 @@ import Login from './auth/Login'
 import Signup from './auth/Signup'
 import CharacterCreation from './Pages/CharacterCreation'
 import CharacterAttributes from './Pages/CharacterAttributes'
+import CharacterSkills from './Pages/CharacterSkills'
 
 class App extends Component {
   state = {
@@ -88,6 +89,10 @@ class App extends Component {
                     <Route
                       path="/character-attributes/:id"
                       render={(routerProps) => <CharacterAttributes {...routerProps} />}
+                    />
+                    <Route
+                      path="/character-skills/:id"
+                      render={(routerProps) => <CharacterSkills {...routerProps} />}
                     />
                   </React.Fragment>
                     :
