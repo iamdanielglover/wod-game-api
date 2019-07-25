@@ -59,3 +59,9 @@
     margin-right: 5rem;
     padding: 2rem;
 }
+
+.display-cards {
+    margin: 2rem;
+    padding: 2rem;
+    height: auto;
+}

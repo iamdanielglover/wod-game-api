@@ -21,7 +21,7 @@ class Home extends Component {
                         <Card.Content>
                             View Characters
                         </Card.Content>
-                        <Button>View</Button>
+                        <Button onClick={() => this.props.history.push('/view-characters')}>View</Button>
                     </Card>
                     <Card>
                         <Card.Content>

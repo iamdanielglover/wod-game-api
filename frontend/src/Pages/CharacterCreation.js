@@ -25,12 +25,10 @@ class CharacterCreation extends Component {
     handleSubmit = async (event) => {
         event.preventDefault()
         const word = await characterPost(this.state, 'http://localhost:3000/characters', localStorage.getItem("token"))
-        console.log(word._id)
         this.props.history.push(`/character-attributes/${word._id}`)
     }
 
     render() {
-        console.log(this.state)
         return (
             <Card id="char-create-card">
                 <Card.Content id="char-create-card-content">

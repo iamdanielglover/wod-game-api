@@ -31,7 +31,7 @@ class CharacterSkills extends Component {
         await characterPost(this.state.character.mentals, `http://localhost:3000/characters/${this.props.match.params.id}/mentals`, localStorage.getItem('token'))
         await characterPost(this.state.character.physicals, `http://localhost:3000/characters/${this.props.match.params.id}/physicals`, localStorage.getItem('token'))
         await characterPost(this.state.character.socials, `http://localhost:3000/characters/${this.props.match.params.id}/socials`, localStorage.getItem('token'))
-        this.props.history.push(`/`)
+        this.props.history.push(`/character/${this.state.character._id}`)
     }
 
     btnInc = (element, skillType) => {
@@ -121,9 +121,9 @@ class CharacterSkills extends Component {
                             <Grid.Column>
                                 <SkillTable skills={this.state.character.socials} btnDec={this.btnDec} btnInc={this.btnInc} skillType={"socials"} spentPoints={this.spentPoints} allowance={this.state.socials} />
                                 <div id="centered-button">
-                                    <Button disabled={this.state.eleven} name="physicals" value={11} onClick={this.handleAllowanceBtns}>11</Button>
-                                    <Button disabled={this.state.seven} name="physicals" value={7} onClick={this.handleAllowanceBtns}>7</Button>
-                                    <Button disabled={this.state.four} name="physicals" value={4} onClick={this.handleAllowanceBtns}>4</Button>
+                                    <Button disabled={this.state.eleven} name="socials" value={11} onClick={this.handleAllowanceBtns}>11</Button>
+                                    <Button disabled={this.state.seven} name="socials" value={7} onClick={this.handleAllowanceBtns}>7</Button>
+                                    <Button disabled={this.state.four} name="socials" value={4} onClick={this.handleAllowanceBtns}>4</Button>
                                 </div>
                             </Grid.Column>
                         </Grid>
