@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { Table, Grid } from 'semantic-ui-react';
+const capitalize = require('../Utils/Capitalize');
 
 class CharacterInfo extends Component {
 
@@ -13,7 +14,7 @@ class CharacterInfo extends Component {
 
                                 <Table.Row>
                                     <Table.Cell>Name</Table.Cell>
-                                    <Table.Cell>{this.props.character.name}</Table.Cell>
+                                    <Table.Cell>{capitalize(this.props.character.name)}</Table.Cell>
                                 </Table.Row>
 
                                 <Table.Row>
@@ -30,12 +31,12 @@ class CharacterInfo extends Component {
 
                                 <Table.Row>
                                     <Table.Cell>Concept</Table.Cell>
-                                    <Table.Cell>{this.props.character.concept}</Table.Cell>
+                                    <Table.Cell>{capitalize(this.props.character.concept)}</Table.Cell>
                                 </Table.Row>
 
                                 <Table.Row>
                                     <Table.Cell>Faction</Table.Cell>
-                                    <Table.Cell>{this.props.character.faction}</Table.Cell>
+                                    <Table.Cell>{capitalize(this.props.character.faction)}</Table.Cell>
                                 </Table.Row>
 
                             </Table.Body>
@@ -47,12 +48,12 @@ class CharacterInfo extends Component {
 
                                 <Table.Row>
                                     <Table.Cell>Vice</Table.Cell>
-                                    <Table.Cell>{this.props.character.vice}</Table.Cell>
+                                    <Table.Cell>{capitalize(this.props.character.vice)}</Table.Cell>
                                 </Table.Row>
 
                                 <Table.Row>
                                     <Table.Cell>Virtue</Table.Cell>
-                                    <Table.Cell>{this.props.character.virtue}</Table.Cell>
+                                    <Table.Cell>{capitalize(this.props.character.virtue)}</Table.Cell>
                                 </Table.Row>
 
                             </Table.Body>

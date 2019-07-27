@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { Grid, Table } from 'semantic-ui-react';
+const capitalize = require('../Utils/Capitalize')
 
 class SkillsTable extends Component {
 
@@ -7,7 +8,7 @@ class SkillsTable extends Component {
         return Object.keys(object).map((i, key) => {
             return (
                 <Table.Row key={key}>
-                    <Table.Cell>{i}</Table.Cell>
+                    <Table.Cell>{capitalize(i)}</Table.Cell>
                     <Table.Cell>{object[i]}</Table.Cell>
                 </Table.Row>
             )

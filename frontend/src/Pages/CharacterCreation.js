@@ -13,7 +13,7 @@ class CharacterCreation extends Component {
         virtue: "charity",
         vice: "envy",
         faction: "",
-        size: ""
+        size: 5,
     }
 
     handleChange = (event) => {
@@ -41,7 +41,7 @@ class CharacterCreation extends Component {
                                         <Table.Cell>
                                             <Form>
                                                 <Form.Input label='Name' placeholder="Name" name="name" value={this.state.name} onChange={this.handleChange} />
-                                                <Form.Input label="Age" placeholder="Age" name="age" type="number" value={this.state.age} onChange={this.handleChange} />
+                                                <Form.Input label="Age" placeholder="Age" name="age" type="number" min={0} max={400} value={this.state.age} onChange={this.handleChange} />
                                             </Form>
                                         </Table.Cell>
                                     </Table.Row>

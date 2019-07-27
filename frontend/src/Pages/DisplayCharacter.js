@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-// import { Grid } from 'semantic-ui-react';
+import { Grid } from 'semantic-ui-react';
 import CharacterInfo from '../Containers/CharacterInfo'
 import AttributesTable from '../Containers/AttributesTable';
 import SkillsTable from '../Containers/SkillsTable'
@@ -23,9 +23,19 @@ class DisplayCharacter extends Component {
     render() {
         return (
             <Fragment>
-                <CharacterInfo character={this.state.character} />
-                <AttributesTable attributes={{...this.state.character.attributes}}/>
-                <SkillsTable mentals={{...this.state.character.mentals}} physicals={{...this.state.character.physicals}} socials={{...this.state.character.socials}}/>
+                        <CharacterInfo character={this.state.character} />
+                <Grid columns={2}>
+
+                    <Grid.Column>
+                        <AttributesTable attributes={{...this.state.character.attributes}}/>
+                        <SkillsTable mentals={{...this.state.character.mentals}} physicals={{...this.state.character.physicals}} socials={{...this.state.character.socials}}/>
+                    </Grid.Column>
+
+                    <Grid.Column>
+                        "Merits & weapons"
+                    </Grid.Column>
+
+                </Grid>
             </Fragment>
         )   
     }
