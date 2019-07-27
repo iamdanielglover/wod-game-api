@@ -747,22 +747,32 @@ const merits = [
         levels: []
     },
     {
-        name: "",
+        name: "Inhuman Resistance",
         preqs: {},
         levels: []
     },
     {
-        name: "",
+        name: "Slayer",
         preqs: {},
         levels: []
     },
     {
-        name: "",
+        name: "Soul Sense",
         preqs: {},
         levels: []
     },
     {
-        name: "",
+        name: "Trained Memory",
+        preqs: {},
+        levels: []
+    },
+    {
+        name: "Trained Observer",
+        preqs: {},
+        levels: []
+    },
+    {
+        name: "Well-Travelled",
         preqs: {},
         levels: []
     },
