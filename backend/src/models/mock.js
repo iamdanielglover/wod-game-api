@@ -723,58 +723,95 @@ const merits = [
     // mental merits
     {
         name: "Area of Experitse",
-        preqs: {},
-        levels: []
+        preqs: { resolve: 2 },
+        levels: [
+            {},
+            {
+                name: "Area of Expertise (●●)",
+                description: "Your character is uncommonly focused on a particular area of expertise. By purchasing this Merit, your character essentially doubles his Specialty in a particular Skill, so that he gains a +2 dice bonus from that Specialty rather than the usual +1. This Merit can only be applied to one of the character’s existing Specialties. This Merit can only be purchased once per character. A character with this Merit cannot have any other Specialties in the same Skill as Area of Expertise."
+            }
+        ]
     },
     {
         name: "Combat Awareness",
         preqs: {},
-        levels: []
+        levels: [
+            {},
+            {
+                name: "Combat Awareness (●●)",
+                description: "Your character understands how to survive on a battlefield as a result of either intense military training or personal experience. This includes knowledge of how to use terrain to your advantage and a general state of mental alertness sustainable even under heavy enemy fire. As a result of this aptitude, your character gains a +2 dice bonus to any situational awareness roll."
+            }
+        ]
     },
     {
         name: "Danger Sense",
         preqs: {},
-        levels: []
+        levels: [
+            {},
+            {
+                name: "Danger Sense (●●)",
+                description: "You gain a +2 modifier on reflexive Wits + Composure rolls for your character to detect an impending ambush. This kind of roll is typically made prior to the first turn of a surprise attack.\nYour character has a well- developed survival instinct that warns him of impending danger.Perhaps he's adept at reading subtle clues in his environment or he possesses an uncanny sixth sense when it comes to avoiding trouble."
+            }
+        ]
     },
     {
         name: "Eidetic Memory",
         preqs: {},
-        levels: []
+        levels: [
+            {},
+            {
+                name: "Eidetic Memory (●●)",
+                description: "Your character has a near-photographic memory, being able to recall vast amounts of observed detail with astonishing accuracy. You do not normally need to make a roll for your character to remember an obscure fact or past experience, unless he is under stress (such as in combat). Under stress, there is a +2 modifier on any Intelligence + Composure or other Skill-based roll (say, Academics, to remember a fact) for memory recall."
+            }
+        ]
     },
     {
         name: "Encyclopedic Knowledge",
         preqs: {},
-        levels: []
-    },
-    {
-        name: "Inhuman Resistance",
-        preqs: {},
-        levels: []
-    },
-    {
-        name: "Slayer",
-        preqs: {},
-        levels: []
-    },
-    {
-        name: "Soul Sense",
-        preqs: {},
-        levels: []
+        levels: [
+            {},
+            {},
+            {},
+            {
+                name: "Encyclopedic Knowledge (●●●●)",
+                description: "Your character is a veritable font of useful (and sometimes useless) information on a wide variety of topics. Chances are he can come up with an anecdote pertaining to any situation based on something he's read, witnessed or seen on TV.\nYou can make an Intelligence + Wits roll any time your character is confronted with a situation or phenomenon outside his normal realm of experience.If the roll is successful, he may recall a 'factoid' that he's heard at some point that may shed light on matters."
+            }
+        ]
     },
     {
         name: "Trained Memory",
-        preqs: {},
-        levels: []
+        preqs: { composure: 2, investigation: 1 },
+        levels: [
+            {
+                name: "",
+                description: "Your character can remember the events of a single scene or a day’s worth of study perfectly as long as she has a turn to concentrate. During this turn (in which she cannot engage in combat or other stressful situations), the character uses a special technique to commit what she has learned to memory. (You should write a brief note about this on the character sheet.) After that, during peaceful times, you no longer need to make dice rolls to remember details about that event or piece of knowledge, and you can ask the Storyteller to fill in details that you might have forgotten.\nDrawback - Just as for any other character, you must make an Intelligence + Composure roll for the character to remember any additional details about a subject during stressful situations (such as combat). You gain no bonus to this roll; your enhanced memory is a matter of training and organized thinking, not off-the-cuff recall."
+            }
+        ]
     },
     {
         name: "Trained Observer",
-        preqs: {},
-        levels: []
+        preqs: { wits: 3, composure: 3 },
+        levels: [
+            {
+                name: "Trained Observer (●)",
+                description: "A Trained Observer can spot the smallest anomaly. No detail escapes his notice. With the one-dot version, the TO ignores mundane penalties of up to -3 on Perception rolls."
+            },
+            {},
+            {
+                name: "Trained Observer (●●●)",
+                description: "The three dot version gives Perception rolls the Rote Action quality."
+            }
+        ]
     },
     {
         name: "Well-Travelled",
         preqs: {},
-        levels: []
+        levels: [
+            {
+                name: "Well-Travelled (●)",
+                description: "The character has either made a study of customs and practices in cultures other than his own or, as the name suggests, traveled extensively enough to know such customs. The character receives the 9-again benefit on any Social roll involving dealing with a foreign culture, or Mental roll for remembering the practices and mores of such a culture. This knowledge is purely practical; the character might remember that it’s rude to show one’s bare head in a given country, but not why."
+            }
+        ]
     },
 ]
 
