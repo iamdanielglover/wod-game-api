@@ -16,7 +16,6 @@ class SkillsTable extends Component {
     }
 
     render() {
-        console.log(this.props)
         return (
             <Fragment>
                 <Grid columns={3}>

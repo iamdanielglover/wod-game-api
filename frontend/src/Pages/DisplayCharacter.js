@@ -4,10 +4,12 @@ import CharacterInfo from '../Containers/CharacterInfo'
 import AttributesTable from '../Containers/AttributesTable';
 import SkillsTable from '../Containers/SkillsTable';
 import MeritsTable from '../Containers/MeritsTable';
+import HitPointsDisplay from '../Containers/HitPointsDisplay';
 
 class DisplayCharacter extends Component {
     state = {
         character: "",
+        hitpoints: 0
     }
 
     componentDidMount = async () => {
@@ -33,7 +35,8 @@ class DisplayCharacter extends Component {
                     </Grid.Column>
 
                     <Grid.Column>
-                        <MeritsTable userId={this.props.match.params.id}/>
+                        <HitPointsDisplay hitpoints={this.state.hitpoints}/>
+                        {/* <MeritsTable userId={this.props.match.params.id}/> */}
                     </Grid.Column>
 
                 </Grid>
