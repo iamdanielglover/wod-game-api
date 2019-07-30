@@ -3,7 +3,7 @@ const { Character, User } = require('../models/user')
 const Merit = require('../models/merits')
 const auth = require('../middleware/auth')
 const router = new express.Router()
-const gladitorial = require('../models/mock')
+const merits = require('../models/mock')
 
 
 router.post('/characters', auth, async (req, res) => {
@@ -125,7 +125,7 @@ router.post('/characters/:id/socials', auth, async (req, res) => {
     }
 })
 
-router.get('/merits', async (req, res) => {
+router.get('/all-merits', async (req, res) => {
     try {
         const merits = await Merit.find({})
         res.status(200).send(merits)
@@ -135,11 +135,45 @@ router.get('/merits', async (req, res) => {
     }
 })
 
-router.post('/merits', async (req, res) => {
+router.patch('/characters/:id/merit/:merits_id', auth, async (req, res) => {
     try {
-        const merit = await new Merit(gladitorial)
-        merit.save()
-        res.status(201).send(merit)
+        const merit = await Merit.findOne({ _id: req.params.merits_id })
+        const character = await Character.findOne({ _id: req.params.id })
+
+        if (character.merits.includes(merit._id)) {
+            return res.status(400).send('Character already has this merit')
+        }
+
+        await character.merits.push(merit._id)
+
+        
+        await character.save()
+        res.status(200).send(character)
+    } catch (e) {
+        res.status(500).send(e)
+    }
+})
+
+router.get('/characters/:id/merits', auth, async (req, res) => {
+    try {
+        const character = await Character.findOne({ _id: req.params.id})
+        await character.populate({
+            path: 'merits'
+        }).execPopulate()
+
+        res.status(200).send(character.merits)
+    } catch (e) {
+        res.status(500).send(e)
+    }
+})
+
+router.post('/seed-merits', async (req, res) => {
+    try {
+        await merits.map(merit => {
+            const m = new Merit(merit)
+            m.save()
+        })
+        res.status(201).send(merits)
     } catch (e) {
         res.status(400).send(e)
     }

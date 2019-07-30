@@ -361,7 +361,11 @@ const CharacterSchema = new mongoose.Schema({
                 }
             }
         }
-    }
+    },
+    merits: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Merit'
+    }]
 })
 
 
