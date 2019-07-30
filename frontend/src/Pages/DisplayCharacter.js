@@ -2,7 +2,8 @@ import React, { Component, Fragment } from 'react';
 import { Grid } from 'semantic-ui-react';
 import CharacterInfo from '../Containers/CharacterInfo'
 import AttributesTable from '../Containers/AttributesTable';
-import SkillsTable from '../Containers/SkillsTable'
+import SkillsTable from '../Containers/SkillsTable';
+import MeritsTable from '../Containers/MeritsTable';
 
 class DisplayCharacter extends Component {
     state = {
@@ -32,7 +33,7 @@ class DisplayCharacter extends Component {
                     </Grid.Column>
 
                     <Grid.Column>
-                        "Merits & weapons"
+                        <MeritsTable userId={this.props.match.params.id}/>
                     </Grid.Column>
 
                 </Grid>
